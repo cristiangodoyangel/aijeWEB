@@ -1,27 +1,52 @@
 ---
-import { Menu, Moon, Sun, X } from 'lucide-astro';
-import ThemeToggle from './ThemeToggle.astro';
+import { Menu, Moon, Sun, X } from "lucide-astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<nav class="fixed w-full z-50 transition-colors duration-300 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+<nav
+	class="sticky top-0 w-full z-50 transition-colors duration-300 bg-white dark:bg-black backdrop-blur-sm border-b border-gray-200 dark:border-gray-800"
+>
 	<div class="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-20">
 			<!-- Logo -->
 			<div class="flex-shrink-0">
 				<a href="/" class="flex items-center gap-2">
-					<img src="/assets/img/logo.png" alt="AIJE Logo" class="h-16 w-auto" />
-					
+					<img
+						src="/assets/img/logo.png"
+						alt="AIJE Logo"
+						class="h-16 w-auto"
+					/>
 				</a>
 			</div>
 
 			<!-- Desktop Menu -->
 			<div class="hidden md:block">
 				<div class="ml-10 flex items-baseline space-x-8">
-					<a href="#" class="text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
-					<a href="#services" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Servicios</a>
-					<a href="#industrial" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Servicios Industriales</a>
-					<a href="#clients" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Clientes</a>
-					<a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+					<a
+						href="#"
+						class="text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+						>Inicio</a
+					>
+					<a
+						href="#services"
+						class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+						>Servicios</a
+					>
+					<a
+						href="#industrial"
+						class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+						>Servicios Industriales</a
+					>
+					<a
+						href="#clients"
+						class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+						>Clientes</a
+					>
+					<a
+						href="#contact"
+						class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+						>Contacto</a
+					>
 				</div>
 			</div>
 
@@ -33,7 +58,10 @@ import ThemeToggle from './ThemeToggle.astro';
 
 			<!-- Mobile menu button -->
 			<div class="md:hidden flex items-center">
-				<button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 hover:text-primary p-2">
+				<button
+					id="mobile-menu-btn"
+					class="text-gray-600 dark:text-gray-300 hover:text-primary p-2"
+				>
 					<Menu class="w-6 h-6" />
 				</button>
 			</div>
@@ -41,23 +69,46 @@ import ThemeToggle from './ThemeToggle.astro';
 	</div>
 
 	<!-- Mobile Menu -->
-	<div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-gray-800">
+	<div
+		id="mobile-menu"
+		class="hidden md:hidden bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-gray-800"
+	>
 		<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-			<a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary">Inicio</a>
-			<a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Servicios</a>
-			<a href="#industrial" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Servicios Industriales</a>
-			<a href="#clients" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Clientes</a>
-			<a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Contacto</a>
+			<a
+				href="#"
+				class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
+				>Inicio</a
+			>
+			<a
+				href="#services"
+				class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+				>Servicios</a
+			>
+			<a
+				href="#industrial"
+				class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+				>Servicios Industriales</a
+			>
+			<a
+				href="#clients"
+				class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+				>Clientes</a
+			>
+			<a
+				href="#contact"
+				class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+				>Contacto</a
+			>
 		</div>
 	</div>
 </nav>
 
 <script is:inline>
 	// Mobile Menu (Independent)
-	const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+	const mobileMenu = document.getElementById("mobile-menu");
 
-	mobileMenuBtn?.addEventListener('click', () => {
-		mobileMenu?.classList.toggle('hidden');
+	mobileMenuBtn?.addEventListener("click", () => {
+		mobileMenu?.classList.toggle("hidden");
 	});
 </script>
