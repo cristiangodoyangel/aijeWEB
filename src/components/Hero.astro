@@ -8,15 +8,29 @@ import { ChevronRight } from "lucide-astro";
     <!-- Contained Wrapper with matching padding to Navbar -->
     <div class="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
         <div
-            class="relative h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-red-900/10"
+            class="relative h-[250px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-red-900/10"
         >
             <!-- Background Image -->
             <div class="absolute inset-0 z-0">
-                <img
-                    src="/assets/img/hero.png"
-                    alt="Auto de alta gama"
-                    class="w-full h-full object-center"
-                />
+                <picture>
+                    <source
+                        media="(max-width: 380px)"
+                        srcset="/assets/img/heroPhone.webp"
+                    />
+                    <source
+                        media="(max-width: 480px)"
+                        srcset="/assets/img/hero480.webp"
+                    />
+                    <source
+                        media="(max-width: 780px)"
+                        srcset="/assets/img/heroMID.webp"
+                    />
+                    <img
+                        src="/assets/img/hero.webp"
+                        alt="Auto de alta gama"
+                        class="h-full w-full object-cover object-center"
+                    />
+                </picture>
                 <!-- Gradient Overlay -->
             </div>
 
