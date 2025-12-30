@@ -23,10 +23,13 @@ const services = [
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">
-                Cotiza nuestros servicios
+            <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+            >
+                Cotiza Nuestros Servicios
             </h2>
-            <p class="text-gray-600 dark:text-gray-400">
+            <div class="w-36 h-1 bg-primary mx-auto rounded-full"></div>
+            <p class="text-gray-600 dark:text-gray-400 mt-4">
                 Selecciona los servicios que necesitas y contáctanos
                 directamente
             </p>
@@ -41,7 +44,7 @@ const services = [
                                 {service.name}
                             </span>
                             <button
-                                class="service-toggle p-2 rounded-full bg-zinc-800 text-primary hover:bg-primary hover:text-white transition-all"
+                                class="service-toggle p-2 rounded-full bg-red-500 text-white hover:bg-black hover:text-white transition-all"
                                 data-service={service.name}
                                 aria-label={`Agregar ${service.name}`}
                             >
@@ -58,7 +61,7 @@ const services = [
                     class="sticky top-24 bg-gray-100 dark:bg-zinc-900 p-6 rounded-xl border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl"
                 >
                     <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-red-500 dark:text-white mb-4"
                     >
                         Tu Selección
                     </h3>
@@ -118,18 +121,23 @@ const services = [
 
     function updateUI() {
         // Update list
-        if (selectedServices.length === 0) {
-            listContainer.innerHTML =
-                '<p class="italic">No has seleccionado servicios aún.</p>';
-            whatsappBtn.classList.add("opacity-50", "pointer-events-none");
-        } else {
-            listContainer.innerHTML = selectedServices
-                .map(
-                    (s) =>
-                        `<div class="flex items-center text-gray-700 dark:text-white"><span class="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>${s}</div>`,
-                )
-                .join("");
-            whatsappBtn.classList.remove("opacity-50", "pointer-events-none");
+        if (listContainer && whatsappBtn) {
+            if (selectedServices.length === 0) {
+                listContainer.innerHTML =
+                    '<p class="italic">No has seleccionado servicios aún.</p>';
+                whatsappBtn.classList.add("opacity-50", "pointer-events-none");
+            } else {
+                listContainer.innerHTML = selectedServices
+                    .map(
+                        (s) =>
+                            `<div class="flex items-center text-gray-700 dark:text-white"><span class="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>${s}</div>`,
+                    )
+                    .join("");
+                whatsappBtn.classList.remove(
+                    "opacity-50",
+                    "pointer-events-none",
+                );
+            }
         }
 
         // Update count
@@ -141,7 +149,7 @@ const services = [
         if (whatsappBtn)
             whatsappBtn.setAttribute(
                 "href",
-                `https://wa.me/56912345678?text=${message}`,
+                `https://wa.me/56948572202?text=${message}`,
             );
 
         // Update buttons
@@ -150,13 +158,17 @@ const services = [
             const plus = btn.querySelector(".icon-plus");
             const minus = btn.querySelector(".icon-minus");
             if (selectedServices.includes(service!)) {
-                btn.classList.add("bg-primary", "text-white");
-                btn.classList.remove("bg-zinc-800");
+                btn.classList.remove("bg-red-500", "hover:bg-black");
+                btn.classList.add(
+                    "bg-green-500",
+                    "hover:bg-green-600",
+                    "text-white",
+                );
                 plus?.classList.add("hidden");
                 minus?.classList.remove("hidden");
             } else {
-                btn.classList.remove("bg-primary", "text-white");
-                btn.classList.add("bg-zinc-800");
+                btn.classList.remove("bg-green-500", "hover:bg-green-600");
+                btn.classList.add("bg-red-500", "hover:bg-black", "text-white");
                 plus?.classList.remove("hidden");
                 minus?.classList.add("hidden");
             }
