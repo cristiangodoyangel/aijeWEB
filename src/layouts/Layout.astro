@@ -1,14 +1,19 @@
-
 ---
-import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
-interface Props {
+export interface Props {
 	title: string;
+	description?: string;
+	image?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Aije.cl Mecánica de Integral en Antofagasta",
+	image = "/preview.png",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -16,21 +21,38 @@ const { title } = Astro.props;
 	<head>
 		<script is:inline>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-				document.documentElement.classList.add('dark');
+			if (
+				localStorage.getItem("color-theme") === "dark" ||
+				(!("color-theme" in localStorage) &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches)
+			) {
+				document.documentElement.classList.add("dark");
 			} else {
-				document.documentElement.classList.remove('dark');
+				document.documentElement.classList.remove("dark");
 			}
 		</script>
 		<meta charset="UTF-8" />
-		<meta name="description" content="AIJE Servicios Integrales - Autos de Alta Gama" />
+		<meta
+			name="description"
+			content="AIJE Servicios Integrales - Autos de Alta Gama"
+		/>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favico.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.site)} />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
-	<body class="bg-white dark:bg-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+	<body
+		class="bg-white dark:bg-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
+	>
 		<Navbar />
 		<main class="flex-grow">
 			<slot />
@@ -44,9 +66,9 @@ const { title } = Astro.props;
 		--accent: 205, 0, 0;
 	}
 	html {
-		font-family: 'Inter', system-ui, sans-serif;
+		font-family: "Inter", system-ui, sans-serif;
 	}
-	
+
 	/* Custom Scrollbar */
 	::-webkit-scrollbar {
 		width: 10px;
